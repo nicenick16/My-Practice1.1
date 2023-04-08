@@ -17,8 +17,9 @@ public class Iframe {
 		WebElement switchto = driver.findElement(By.xpath("(//*[@href=\"SwitchTo.html\"])[1]"));
 		switchto.click();
 		WebElement iframe = driver.findElement(By.xpath("//*[@href=\"Frames.html\"]"));
+//		driver.switchTo().frame(iframe);
 		iframe.click();
-//		driver.switchTo().frame(0);
+		driver.switchTo().frame(0);
 		Thread.sleep(500);
 		driver.findElement(By.xpath("(//*[@data-toggle='tab'])[2]")).click();
 		Thread.sleep(500);
@@ -28,12 +29,11 @@ public class Iframe {
 //		Thread.sleep(500);
 		WebElement textbox = driver.findElement(By.xpath("//input[@type='text']"));
 		textbox.sendKeys("1235");
-		
 		driver.switchTo().defaultContent();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("(//*[@data-toggle='tab'])[1]")).click();
 		WebElement me = driver.findElement(By.xpath("//*[@name=\"SingleFrame\"]"));
 		driver.switchTo().frame(me);
-		driver.findElement(By.xpath("//*[@type=\"text\"]")).sendKeys("456789");
+		driver.findElement(By.xpath("//*[@type='text']")).sendKeys("456789");
 	}
 }
